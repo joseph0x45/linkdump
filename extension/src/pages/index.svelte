@@ -6,6 +6,6 @@
 
 </script>
 
-<button on:click={breuh} >
+<button class=" bg-red-400 text-white" on:click={breuh} >
     Hello
 </button>

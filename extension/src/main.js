@@ -1,7 +1,7 @@
 import App from "./App.svelte";
-import "@unocss/reset/tailwind.css";
-import "uno.css";
+import "./app.css"
 
+// @ts-ignore
 const app = new App({
   target: document.getElementById("app"),
 });
