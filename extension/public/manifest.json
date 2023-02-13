@@ -1,6 +1,6 @@
 {
-  "name": "Hello World",
-  "description": "This is for testing",
+  "name": "LinkDump",
+  "description": "Dump them links here",
   "version": "0.0.1",
   "manifest_version": 3,
   "action": {

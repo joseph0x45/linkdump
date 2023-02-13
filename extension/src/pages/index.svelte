@@ -1,7 +1,9 @@
-<script>
+<script lang="ts" >
+    import { navigate } from "svelte-routing"
     function breuh(){
-        alert("Bozo")
+        navigate("/auth")
     }
+
 </script>
 
 <button on:click={breuh} >

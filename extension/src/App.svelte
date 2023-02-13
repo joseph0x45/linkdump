@@ -1,18 +1,10 @@
 <script>
-  import Router from "svelte-spa-router";
-  import routes from "virtual:generated-pages-svelte";
+  import { Route, Router } from "svelte-routing"
+  import Index from "./pages/index.svelte";
+  import Auth from "./pages/auth.svelte";
 </script>
 
-<Router {routes} />
-
-<style>
-  :global(*) {
-    word-wrap: break-word;
-  }
-  /* chrome extension */
-  /* :global(body) {
-    width: 350px;
-    height: 500px;
-    font-size: 16px;
-  } */
-</style>
+<Router >
+  <Route component={Index}/>
+  <Route component={Auth} path="/auth"/>
+</Router>
