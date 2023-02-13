@@ -1,0 +1,9 @@
+{
+    "name": "LinkDump",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+      "default_title": "Click to view a popup",
+      "default_popup": "public_dumps.html"
+    }
+  }
