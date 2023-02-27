@@ -37,7 +37,7 @@
                 </svg>
             {/if}
         </button>
-        <button type="button" class=" underline text-sm" on:click={switch_action}>
+        <button type="button" class=" underline" on:click={switch_action}>
             <h1>
                 {alt} instead
             </h1>
