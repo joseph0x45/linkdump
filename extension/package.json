@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@vitejs/plugin-legacy": "^2.1.0",
+    "axios": "^1.3.4",
     "svelte-routing": "^1.6.0",
     "terser": "^5.15.0",
     "vite-plugin-pages-svelte": "0.0.1"
