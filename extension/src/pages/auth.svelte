@@ -1,4 +1,4 @@
-<script  >
+<script>
     import axios from "axios"
     let api_url = ""
     let email_or_username = ""
