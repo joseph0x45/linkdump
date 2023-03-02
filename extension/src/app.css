@@ -3,5 +3,19 @@
 @tailwind utilities;
 
 body{
-    @apply bg-slate-200;
+    @apply bg-black;
+}
+
+.input{
+    @apply  focus:border-white focus:border-[0.00005px] text-white p-2 rounded-md w-64 
+            placeholder:text-gray-500 border-[0.5px] border-slate-500 caret-white bg-transparent;
+}
+
+.btn{
+    @apply  rounded-md border-slate-500 text-slate-500 border bg-transparent p-2 flex justify-center
+     hover:text-white hover:border-white;
+}
+
+.btn-v2{
+    @apply bg-white text-black font-bold rounded-md p-2 border border-white hover:border-white hover:bg-black hover:text-white;
 }

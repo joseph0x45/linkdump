@@ -23,10 +23,10 @@
 
 <main class="  flex flex-col items-center justify-center h-screen" >
     <form class="flex flex-col gap-3" on:submit|preventDefault={authenticate} >
-        <input bind:value={email_or_username} class=" focus:outline-none p-2 rounded-md text-slate-500 border-[2px] w-64 " required type="text" placeholder={`Email ${action==="Login"?"or username":""}`}>
-        <input bind:value={username} hidden={action==="Login"} class=" focus:outline-none p-2 rounded-md text-slate-500 w-64 border-[2px]" required type="text" placeholder="Username">
-        <input bind:value={password} class=" focus:outline-none p-2 rounded-md text-slate-500 w-64 border-[2px]" type="password" required placeholder="Password">
-        <button type="submit" class=" rounded-md border-white text-white bg-slate-700 p-2 flex justify-center" >
+        <input bind:value={email_or_username} class="input" required type="text" placeholder={`Email ${action==="Login"?"or username":""}`}>
+        <input bind:value={username} hidden={action==="Login"} class="input " required type="text" placeholder="Username">
+        <input bind:value={password} class="input" type="password" required placeholder="Password">
+        <button type="submit" class="btn-v2" >
             {#if !loading}
                 <h1>
                     {action}
@@ -44,3 +44,4 @@
         </button>
     </form>
 </main>
+
