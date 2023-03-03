@@ -7,6 +7,8 @@
     let action = "Register" 
     let alt = "Login"
     let loading = false
+    let error = false
+    let error_message = ""
     function authenticate(){
         loading = true
     }
@@ -26,6 +28,7 @@
         <input bind:value={email_or_username} class="input" required type="text" placeholder={`Email ${action==="Login"?"or username":""}`}>
         <input bind:value={username} hidden={action==="Login"} class="input " required type="text" placeholder="Username">
         <input bind:value={password} class="input" type="password" required placeholder="Password">
+        <span hidden={!error} class=" text-xs text-red-600 " >{error_message}</span>
         <button type="submit" class="btn-v2" >
             {#if !loading}
                 <h1>
@@ -37,7 +40,7 @@
                 </svg>
             {/if}
         </button>
-        <button type="button" class=" underline" on:click={switch_action}>
+        <button type="button" class=" text-gray-500 underline" on:click={switch_action}>
             <h1>
                 {alt} instead
             </h1>
