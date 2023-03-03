@@ -8,11 +8,11 @@ body{
 
 .input{
     @apply  focus:border-white focus:border-[0.00005px] text-white p-2 rounded-md w-64 
-            placeholder:text-gray-500 border-[0.5px] border-slate-500 caret-white bg-transparent;
+            placeholder:text-gray-500 border-[0.5px] border-gray-500 caret-white bg-transparent;
 }
 
 .btn{
-    @apply  rounded-md border-slate-500 text-slate-500 border bg-transparent p-2 flex justify-center
+    @apply  rounded-md border-gray-500 text-gray-500 border bg-transparent p-2 flex justify-center
      hover:text-white hover:border-white;
 }
 
