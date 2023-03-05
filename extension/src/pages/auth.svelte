@@ -1,6 +1,7 @@
 <script>
     import axios from "axios"
-    let api_url = ""
+    import { navigate } from "svelte-routing";
+    let api_url = "http://localhost:5000/auth"
     let email_or_username = ""
     let password = ""
     let username = ""
@@ -11,6 +12,40 @@
     let error_message = ""
     function authenticate(){
         loading = true
+        error = false
+        let endoint = action.toLowerCase()
+        axios.post(
+            `${api_url}/${endoint}`,
+            {
+                email_or_username,
+                email: email_or_username,
+                username,
+                password
+            }
+        ).then(res=>{
+            loading = false
+            if(res.status===200){
+                localStorage.setItem("user", res.data.user)
+                navigate("/")
+            }
+        }).catch(err=>{
+            loading = false
+            error = true
+            switch (err.response.status) {
+                case 400:
+                    error_message="Wrong password"
+                    break;
+                case 404:
+                    error_message="User not found"
+                    break
+                case 409:
+                    error_message=err.response.data.message
+                    break
+                case 500:
+                    error_message="Something went wrong. Please Try again"
+                    break
+            }
+        })
     }
     function switch_action(){
         if(action==="Login"){
@@ -25,11 +60,11 @@
 
 <main class="  flex flex-col items-center justify-center h-screen" >
     <form class="flex flex-col gap-3" on:submit|preventDefault={authenticate} >
-        <input bind:value={email_or_username} class="input" required type="text" placeholder={`Email ${action==="Login"?"or username":""}`}>
-        <input bind:value={username} hidden={action==="Login"} class="input " required type="text" placeholder="Username">
-        <input bind:value={password} class="input" type="password" required placeholder="Password">
+        <input name="email_or_username" bind:value={email_or_username} class="input" required type="text" placeholder={`Email ${action==="Login"?"or username":""}`}>
+        <input name="username" bind:value={username} hidden={action==="Login"} class="input " type="text" placeholder="Username">
+        <input name="password" bind:value={password} class="input" type="password" required placeholder="Password">
         <span hidden={!error} class=" text-xs text-red-600 " >{error_message}</span>
-        <button type="submit" class="btn-v2" >
+        <button type="submit" class="btn-v2 " >
             {#if !loading}
                 <h1>
                     {action}

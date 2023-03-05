@@ -17,5 +17,5 @@ body{
 }
 
 .btn-v2{
-    @apply bg-white text-black font-bold rounded-md p-2 border border-white hover:border-white hover:bg-black hover:text-white;
+    @apply bg-white text-black font-bold rounded-md p-2 border border-white hover:border-white hover:bg-black hover:text-white  flex justify-center;
 }
