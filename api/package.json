@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/src/server.js",
-    "dev": "concurrently \"tsc --watch\" \"node dist/src/server.js --watch\"",
+    "dev": "tsc && npm start",
     "build": "tsc"
   },
   "keywords": [],
@@ -27,7 +27,6 @@
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
-    "cryptr": "^6.1.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^6.9.1"

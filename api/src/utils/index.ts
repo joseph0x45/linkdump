@@ -1,29 +1,16 @@
 import bcrypt from "bcrypt"
-import Cryptr from "cryptr"
 import { Log } from "../types"
 const encryption_key = process.env.ENCRYPTION_KEY
 
 export function hash_password( plain_text_password: string ){
-    try {
-        const salt_rounds = process.env.SALT_ROUNDS
-        return bcrypt.hashSync(plain_text_password, salt_rounds as string)
-    } catch (error) {
-        console.log(error)
-        throw Error()
-    }
+    const salt_rounds = 12
+    return bcrypt.hashSync(plain_text_password, bcrypt.genSaltSync(salt_rounds))
 }
 
 export function password_matches(user_supplied_password: string, database_hash:string){
-    try {
-        return bcrypt.compareSync(user_supplied_password, database_hash)
-    } catch (error) {
-        console.log(error)
-        throw Error()
-    }
+    return bcrypt.compareSync(user_supplied_password, database_hash)
 }
 
-export const cryptr = new Cryptr(encryption_key as string)
-
-export function logger( log_type:Log, origin: string, message:string){
+export function logger( log_type:Log, origin: string, message:unknown){
     console.log(`${log_type} Happened in ${origin}: ${message}`)
 }
