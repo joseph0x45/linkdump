@@ -41,9 +41,3 @@ export type User = InferModel<typeof Users>
 export type Dump = InferModel<typeof Dumps>
 export type Link = InferModel<typeof Links>
 export type Report = InferModel<typeof Reports>
-
-const pool = new Pool({
-    connectionString:""
-})
-
-export const db = drizzle(pool)
