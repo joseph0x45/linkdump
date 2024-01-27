@@ -2,7 +2,8 @@ package handlers
 
 import (
 	"github.com/labstack/echo/v4"
-  "linkdump/ui/components"
+	"linkdump/ui"
+	"linkdump/ui/layouts"
 )
 
 type AppHandler struct {
@@ -13,5 +14,5 @@ func NewAppHandler() *AppHandler {
 }
 
 func (h *AppHandler) RenderLandingPage(c echo.Context) error {
-  return components.Hello("Bozo").Render(c.Request().Context(), c.Response().Writer)
+	return layouts.Base(ui.LandingPage()).Render(c.Request().Context(), c.Response().Writer)
 }
