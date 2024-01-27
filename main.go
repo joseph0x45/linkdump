@@ -1,9 +1,14 @@
 package main
 
 import (
-  "fmt"
+	"github.com/labstack/echo/v4"
+	"linkdump/handlers"
 )
 
-func main(){
-  fmt.Println("Hello world")
+func main() {
+	handler := handlers.NewAppHandler()
+	app := echo.New()
+
+	app.GET("/", handler.RenderLandingPage)
+	app.Logger.Fatal(app.Start(":4000"))
 }
