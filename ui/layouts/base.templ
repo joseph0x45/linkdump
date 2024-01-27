@@ -1,15 +1,19 @@
-package ui
+package layouts
 
-templ Index() {
+templ Base(title string) {
 <html lang="en">
 
 <head>
+  <title>{ title }</title>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/static/output.css" rel="stylesheet" />
 </head>
 
-<body></body>
+<body>
+  <h1 class="text-red-400 text-4xl">Hello world</h1>
+</body>
 
 </html>
 }

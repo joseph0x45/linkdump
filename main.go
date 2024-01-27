@@ -9,6 +9,8 @@ func main() {
 	handler := handlers.NewAppHandler()
 	app := echo.New()
 
+  app.Static("/static", "public")
+
 	app.GET("/", handler.RenderLandingPage)
 	app.Logger.Fatal(app.Start(":4000"))
 }
