@@ -1,16 +1,14 @@
 package main
 
 import (
-	"github.com/labstack/echo/v4"
-	"linkdump/handlers"
+	"github.com/go-chi/chi/v5"
+	"net/http"
 )
 
 func main() {
-	handler := handlers.NewAppHandler()
-	app := echo.New()
-
-  app.Static("/static", "public")
-
-	app.GET("/", handler.RenderLandingPage)
-	app.Logger.Fatal(app.Start(":4000"))
+	r := chi.NewRouter()
+	err := http.ListenAndServe(":8080", r)
+	if err != nil {
+		panic(err)
+	}
 }
