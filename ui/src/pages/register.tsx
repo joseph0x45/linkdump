@@ -1,14 +1,10 @@
 function AuthPage() {
   return (
     <>
-      <head>
-        <title>Linkdump | Register</title>
-      </head>
-      <main className="w-full h-screen flex flex-col items-center justify-center">
-        <h1>Register to LinkDump</h1>
-        <div className="">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 ">
+        <div className="w-full max-w-md p-8 space-y-4 bg-white rounded shadow-md ">
         </div>
-      </main>
+      </div>
     </>
   )
 }
